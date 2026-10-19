@@ -313,6 +313,8 @@ function filterProducts(category) {
 // تنبيهات Toast
 function showToast(message) {
     const toast = document.getElementById("toast");
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
     toast.innerHTML = `<i data-lucide="info"></i> <span>${message}</span>`;
     toast.classList.remove("hidden");
     lucide.createIcons();
@@ -421,11 +423,11 @@ function renderCartItems() {
                 <p class="cart-item-price">${item.product.price.toFixed(2)} ج.م.</p>
                 <div class="cart-item-actions">
                     <div class="quantity-controller">
-                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, -1)">
+                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, -1)" aria-label="إنقاص الكمية">
                             <i data-lucide="minus"></i>
                         </button>
                         <span class="qty-val">${item.quantity}</span>
-                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, 1)">
+                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, 1)" aria-label="زيادة الكمية">
                             <i data-lucide="plus"></i>
                         </button>
                     </div>

@@ -468,13 +468,24 @@ function showProductDetails(productId) {
         thumb.className = `thumbnail-img ${idx === 0 ? 'active' : ''}`;
         thumb.src = img;
         thumb.alt = `${product.title} - صورة ${idx + 1}`;
+        thumb.tabIndex = 0;
+        thumb.setAttribute("role", "button");
+        thumb.setAttribute("aria-label", `عرض صورة ${idx + 1} لـ ${product.title}`);
         thumb.onerror = function() { this.src = 'logo.png'; };
         
-        // عند الضغط على الصورة المصغرة تتغير الصورة الرئيسية
-        thumb.onclick = () => {
+        const selectImage = () => {
             document.getElementById("detail-main-image").src = img;
             document.querySelectorAll(".thumbnail-img").forEach(t => t.classList.remove("active"));
             thumb.classList.add("active");
+        };
+
+        // عند الضغط على الصورة المصغرة تتغير الصورة الرئيسية
+        thumb.onclick = selectImage;
+        thumb.onkeydown = (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                selectImage();
+            }
         };
         
         thumbnailsContainer.appendChild(thumb);

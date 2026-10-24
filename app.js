@@ -421,11 +421,11 @@ function renderCartItems() {
                 <p class="cart-item-price">${item.product.price.toFixed(2)} ج.م.</p>
                 <div class="cart-item-actions">
                     <div class="quantity-controller">
-                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, -1)">
+                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, -1)" aria-label="إنقاص كمية ${item.product.title}">
                             <i data-lucide="minus"></i>
                         </button>
                         <span class="qty-val">${item.quantity}</span>
-                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, 1)">
+                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, 1)" aria-label="زيادة كمية ${item.product.title}">
                             <i data-lucide="plus"></i>
                         </button>
                     </div>

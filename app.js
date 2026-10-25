@@ -421,15 +421,15 @@ function renderCartItems() {
                 <p class="cart-item-price">${item.product.price.toFixed(2)} ج.م.</p>
                 <div class="cart-item-actions">
                     <div class="quantity-controller">
-                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, -1)">
+                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, -1)" aria-label="تقليل الكمية">
                             <i data-lucide="minus"></i>
                         </button>
                         <span class="qty-val">${item.quantity}</span>
-                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, 1)">
+                        <button class="qty-btn" onclick="updateQuantity(${item.product.id}, 1)" aria-label="زيادة الكمية">
                             <i data-lucide="plus"></i>
                         </button>
                     </div>
-                    <button class="delete-item-btn" onclick="removeFromCart(${item.product.id})" aria-label="حذف">
+                    <button class="delete-item-btn" onclick="removeFromCart(${item.product.id})" aria-label="حذف ${item.product.title} من السلة">
                         <i data-lucide="trash-2"></i>
                     </button>
                 </div>
